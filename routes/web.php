@@ -16,38 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\SiteController::class, 'redirect'])->name('home');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-//BUSCAR ENDEREÇO PELO CEP
-Route::post('/endereco/buscaCep/{cep}', [App\Http\Controllers\Admin\AdminController::class, 'buscaCep'])->name('buscaCep');
-
-Route::name('painel.')
-->prefix('painel')
-->namespace('App\Http\Controllers\Painel')
-->middleware(['auth'])
-->group(function(){
-	// Painel do Cliente
-	Route::name('cliente.')
-	->prefix('cliente')
-	->middleware(['auth', 'can:cliente'])
-	->group(function(){
-		Route::get('/', 'ClienteController@index')->name('home');
-		Route::put('/update/{id}', 'ClienteController@update')->name('update');
-		Route::post('user/senha','ClienteController@updateSenha')->name('user.senha.update');
-		Route::post('/agenda/store', 'ClienteController@agendaStore')->name('agendamento.store');
-		Route::delete('/agenda/destroy/{id}', 'ClienteController@agendaDestroy')->name('agendamento.destroy');
-		Route::put('/agenda/update/{id}', 'ClienteController@agendaUpdate')->name('agendamento.update');
-	});
-	// Painel do Instrutor
-	Route::name('instrutor.')
-	->prefix('instrutor')
-	->middleware(['auth', 'can:instrutor'])
-	->group(function(){
-		Route::get('/', 'InstrutorController@index')->name('home');
-		Route::put('/update/{id}', 'InstrutorController@update')->name('update');
-		Route::post('user/senha','InstrutorController@updateSenha')->name('user.senha.update');
-		Route::delete('/agenda/destroy/{id}', 'InstrutorController@agendaDestroy')->name('agendamento.destroy');
-	});
-});
-
 Route::name('admin.')
 ->prefix('admin')
 ->namespace('App\Http\Controllers\Admin')
@@ -57,6 +25,21 @@ Route::name('admin.')
 
 	//ROTAS ADMINISTRADORES
 	Route::resource('administrador', AdministradorController::class);
+
+    //ROTAS BUFFET
+    Route::resource('buffet', BuffetController::class);
+
+    //ROTAS AGENDA
+    Route::resource('agenda', AgendaController::class);
+
+    //ROTAS RESERVA
+    Route::resource('reserva', ReservaController::class);
+
+    //ROTAS RECOMENDACAO
+    Route::resource('recomendacao', RecomendacaoController::class);
+
+    //ROTAS PESQUISA
+    Route::resource('pesquisa', PesquisaController::class);
 });
 
 Auth::routes();
