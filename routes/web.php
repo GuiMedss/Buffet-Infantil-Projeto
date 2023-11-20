@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\SiteController::class, 'redirect'])->name('home');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::resource('convidado', App\Http\Controllers\ConvidadoController::class);
+Route::get('convidado/create/{id}', [App\Http\Controllers\ConvidadoController::class, 'createWithId'])->name('convidado.createWithId');
+Route::get('convidado/lista/{id}', [App\Http\Controllers\ConvidadoController::class, 'index'])->name('convidado.lista');
+
+Route::name('user.')
+->prefix('user')
+->namespace('App\Http\Controllers\User')
+->middleware(['auth'])
+->group(function(){
+    Route::get('/', 'UserController@index')->name('home');
+    Route::get('/pesquisa', 'UserController@pesquisa')->name('pesquisa');
+    Route::post('/pesquisa/store', 'UserController@pesquisaStore')->name('pesquisa.store');
+
+    Route::resource('reserva', ReservaController::class);
+});
+
 Route::name('admin.')
 ->prefix('admin')
 ->namespace('App\Http\Controllers\Admin')

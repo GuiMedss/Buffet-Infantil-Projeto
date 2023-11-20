@@ -11,6 +11,7 @@ class Reserva extends Model
 
     protected $table = 'reservas';
     protected $fillable = [
+        'user_id',
         'buffet_id',
         'data',
         'qtd_convidados',
@@ -31,4 +32,8 @@ class Reserva extends Model
     public function Buffet(){
 		return $this->belongsTo('App\Models\Buffet')->withDefault();
 	}
+
+    public function Convidados(){
+        return $this->hasMany('App\Models\Convidado');
+    }
 }
