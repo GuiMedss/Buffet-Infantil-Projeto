@@ -39,12 +39,33 @@ class BuffetController extends Controller
      */
     public function store(Request $request)
     {
-        $buffet = Buffet::create($request->all());
+        $data = $request->validate([
+            'titulo' => 'required',
+            'comidas' => 'required',
+            'bebidas' => 'required',
+            'valor' => 'required',
+            'img1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-		return redirect()->back()->with([
-			'success' => 'Buffet criada com sucesso',
-		]);
+        if($request->hasFile('img1')) {
+            $data['img1'] = $request->file('img1')->store('images', 'public');
+        }
+
+        if($request->hasFile('img2')) {
+            $data['img2'] = $request->file('img2')->store('images', 'public');
+        }
+
+        if($request->hasFile('img3')) {
+            $data['img3'] = $request->file('img3')->store('images', 'public');
+        }
+
+        Buffet::create($data);
+
+        return redirect()->route('admin.buffet.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -82,11 +103,31 @@ class BuffetController extends Controller
     {
         $buffet = Buffet::findOrFail($id);
 
-        $buffet->update($request->all());
+        $data = $request->validate([
+            'titulo' => 'required',
+            'comidas' => 'required',
+            'bebidas' => 'required',
+            'valor' => 'required',
+            'img1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-		return redirect()->back()->with([
-			'success' => 'Buffet editado com sucesso',
-		]);
+        if($request->hasFile('img1')) {
+            $data['img1'] = $request->file('img1')->store('images', 'public');
+        }
+
+        if($request->hasFile('img2')) {
+            $data['img2'] = $request->file('img2')->store('images', 'public');
+        }
+
+        if($request->hasFile('img3')) {
+            $data['img3'] = $request->file('img3')->store('images', 'public');
+        }
+
+        $buffet->update($data);
+
+        return redirect()->route('admin.buffet.index');
     }
 
     /**
