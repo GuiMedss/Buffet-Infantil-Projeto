@@ -12,9 +12,10 @@ class Pesquisa extends Model
     protected $table = 'pesquisas';
     protected $fillable = [
         'comida',
-        'atendimento',
-        'ambiente',
-        'recomendacao',
-        'avaliacao'
+        'bebida',
+        'decoracao',
+        'limpeza',
+        'brincadeiras',
+        'sugestao'
     ];
 }

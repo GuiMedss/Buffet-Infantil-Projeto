@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('comida');
-            $table->string('atendimento');
-            $table->string('ambiente');
-            $table->string('recomendacao');
-            $table->string('avaliacao');
+            $table->string('bebida');
+            $table->string('decoracao');
+            $table->string('limpeza');
+            $table->string('brincadeiras');
+            $table->string('sugestao');
         });
     }
 

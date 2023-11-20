@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
         });
+
+        Artisan::call('db:seed', ['--class' => 'AdminUserSeeder']);
     }
 
     /**
