@@ -16,6 +16,8 @@ class SiteController extends Controller
         if (Auth::user()) {
             if (Gate::forUser($user)->allows('administrador')) {
                 return redirect()->route('admin.home');
+            } else {
+                return redirect()->route('user.home');
             }
         } else {
             return redirect()->route('login');
