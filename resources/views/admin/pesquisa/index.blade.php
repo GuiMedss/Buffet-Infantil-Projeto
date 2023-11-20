@@ -15,21 +15,23 @@
 					<table class="table table-bordered table-stripped datatable">
 						<thead>
                             <th style="display: none;">#</th>
-							<th>Comida</th>
-                            <th>Atendimento</th>
-                            <th>Ambiente</th>
-                            <th>Recomendaria para um amigo?</th>
-                            <th>Avaliação</th>
+							<th>As comidas estavam gostosas?</th>
+                            <th>As bebidas estavam agradáveis?</th>
+                            <th>A decoração estava de acordo?</th>
+                            <th>O salão estava limpo?</th>
+                            <th>O espaço de brincadeiras agradou as crianças?</th>
+                            <th>Sugestão</th>
 						</thead>
     					<tbody>
     						@foreach($pesquisas as $key => $pesquisa)
     						<tr>
                                 <td style="display: none;">{{$key}}</td>
                                 <td>{{$pesquisa->comida}}</td>
-                                <td>{{$pesquisa->atendimento}}</td>
-                                <td>{{$pesquisa->ambiente}}</td>
-                                <td>{{$pesquisa->recomendacao}}</td>
-                                <td>{{$pesquisa->avaliacao}}</td>
+                                <td>{{$pesquisa->bebida}}</td>
+                                <td>{{$pesquisa->decoracao}}</td>
+                                <td>{{$pesquisa->limpeza}}</td>
+                                <td>{{$pesquisa->brincadeiras}}</td>
+                                <td>{{$pesquisa->sugestao}}</td>
     						</tr>
     						@endforeach
     					</tbody>
