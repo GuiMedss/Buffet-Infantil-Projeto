@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form id="form" action="{{route('admin.buffet.store')}}" method="POST" novalidate>
+                    <form id="form" action="{{route('admin.buffet.store')}}" method="POST" enctype="multipart/form-data" novalidate>
                         @csrf
                         <div class="mb-4">
                             <label for="titulo">Título</label>
@@ -51,6 +51,18 @@
                         <div class="mb-4">
                             <label for="valor">Valor por pessoa</label>
                             <input type="text" name="valor" class="form-control number" value="{{old('valor')}}" placeholder="Valor*">
+                        </div>
+                        <div class="mb-4">
+                            <label for="imagens">Imagem 1</label>
+                            <input type="file" name="img1" class="form-control">
+                        </div>
+                        <div class="mb-4">
+                            <label for="imagens">Imagem 2</label>
+                            <input type="file" name="img2" class="form-control">
+                        </div>
+                        <div class="mb-4">
+                            <label for="imagens">Imagem 3</label>
+                            <input type="file" name="img3" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-success">Salvar</button>
                     </form>

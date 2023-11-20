@@ -20,6 +20,7 @@
 							<th>Comida</th>
                             <th>Bebidas</th>
 							<th>valor</th>
+                            <th>Imagens</th>
                             <th>Operações</th>
 						</thead>
     					<tbody>
@@ -30,6 +31,19 @@
                                 <td>{!! $buffet->comidas !!}</td>
                                 <td>{!! $buffet->bebidas !!}</td>
                                 <td>R$ {{$buffet->valor}}</td>
+                                <td>
+                                    @if($buffet->img1_url)
+                                        <img src="{{ $buffet->img1_url }}" alt="Imagem 1" width="100px">
+                                    @endif
+
+                                    @if($buffet->img2_url)
+                                        <img src="{{ $buffet->img2_url }}" alt="Imagem 2" width="100px">
+                                    @endif
+
+                                    @if($buffet->img3_url)
+                                        <img src="{{ $buffet->img3_url }}" alt="Imagem 3" width="100px">
+                                    @endif
+                                </td>
                                 <td width="150">
                                     <div class="row">
                                         <div class="col-md-6">

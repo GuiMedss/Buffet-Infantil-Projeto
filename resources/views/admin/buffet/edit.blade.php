@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form id="form" action="{{route('admin.buffet.update', $buffet->id)}}" method="POST" novalidate>
+                    <form id="form" action="{{route('admin.buffet.update', $buffet->id)}}" method="POST" enctype="multipart/form-data" novalidate>
                         @method('PUT')
                         @csrf
                         <div class="mb-4">
@@ -52,6 +52,27 @@
                         <div class="mb-4">
                             <label for="valor">Valor por pessoa</label>
                             <input type="text" name="valor" class="form-control number" value="{{old('valor', $buffet->valor)}}" placeholder="Valor*">
+                        </div>
+                        <div class="mb-4">
+                            @if($buffet->img1_url)
+                                <img src="{{ $buffet->img1_url }}" alt="Imagem 1" width="100px">
+                            @endif
+                            <label for="imagens">Imagem 1</label>
+                            <input type="file" name="img1" class="form-control">
+                        </div>
+                        <div class="mb-4">
+                            @if($buffet->img2_url)
+                                <img src="{{ $buffet->img2_url }}" alt="Imagem 2" width="100px">
+                            @endif
+                            <label for="imagens">Imagem 2</label>
+                            <input type="file" name="img2" class="form-control">
+                        </div>
+                        <div class="mb-4">
+                            @if($buffet->img3_url)
+                                <img src="{{ $buffet->img3_url }}" alt="Imagem 3" width="100px">
+                            @endif
+                            <label for="imagens">Imagem 3</label>
+                            <input type="file" name="img3" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-success">Salvar</button>
                     </form>
