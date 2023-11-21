@@ -10,10 +10,15 @@ Este é um projeto Laravel destinado a um Buffet de festas que oferece um sistem
     - `php artisan key:generate`
     - `php artisan migrate`
     - `php artisan storage:link`
-5. Por padrão é gerado um usuário adminstrador
+5. Acesse pelo endereço: <http://localhost:8989>
+6. Por padrão é gerado um usuário adminstrador
     - email: admin@gmail.com
     - senha: admin123
-6. Demais funcionalidades de usuário são disponibilizadas após o registro
+7. Demais funcionalidades de usuário são disponibilizadas após o registro
+
+## Links do trabalho
+ - Telas: <https://www.canva.com/design/DAFxQpX5Xbg/BWr7Kfu0uvJ2IwNhM5NOcA/edit>
+ - Divisão de tarefas: <https://trello.com/b/i00zVEND/space-adventure>
 
 ## Funcionalidades do Usuário
 
