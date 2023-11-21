@@ -40,6 +40,7 @@ COPY ./composer.json /var/www/html/composer.json
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install
 RUN php artisan storage:link
+RUN php artisan key:generate
 
 # Copy custom configurations PHP
 COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini

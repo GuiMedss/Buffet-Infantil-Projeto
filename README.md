@@ -3,11 +3,17 @@
 Este é um projeto Laravel destinado a um Buffet de festas que oferece um sistema de reservas e um painel administrativo. Abaixo estão as principais funcionalidades e tarefas do projeto.
 
 ## Instalação do Projeto
-1. Clone o repositório: `git clone <URL do Repositório>`
-2. Instale as dependências: `composer install`
-3. Configure o arquivo `.env` com as informações do banco de dados e outras configurações necessárias.
-4. Execute as migrações e as sementes: `php artisan migrate --seed`
-5. Inicie o servidor: `php artisan serve`
+1. Clone o repositório: `git clone https://github.com/GuiMedss/Buffet-Infantil-Projeto.git`
+2. Acesse o repositório: `cd ./Buffet-Infantil-Projeto`
+3. Execute o comando: `sudo docker-compose up -d --build`
+4. Agora acesse o terminal do docker: `sudo docker-compose exec app bash`
+    - `php artisan key:generate`
+    - `php artisan migrate`
+    - `php artisan storage:link`
+5. Por padrão é gerado um usuário adminstrador
+    - email: admin@gmail.com
+    - senha: admin123
+6. Demais funcionalidades de usuário são disponibilizadas após o registro
 
 ## Funcionalidades do Usuário
 
