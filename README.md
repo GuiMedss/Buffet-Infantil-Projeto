@@ -1,66 +1,81 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto Laravel - Buffet Reservas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um projeto Laravel destinado a um Buffet de festas que oferece um sistema de reservas e um painel administrativo. Abaixo estão as principais funcionalidades e tarefas do projeto.
 
-## About Laravel
+## Instalação do Projeto
+1. Clone o repositório: `git clone https://github.com/GuiMedss/Buffet-Infantil-Projeto.git`
+2. Acesse o repositório: `cd ./Buffet-Infantil-Projeto`
+3. Execute o comando: `sudo docker-compose up -d --build`
+4. Agora acesse o terminal do docker: `sudo docker-compose exec app bash`
+    - `php artisan key:generate`
+    - `php artisan migrate`
+    - `php artisan storage:link`
+5. Acesse pelo endereço: <http://localhost:8989>
+6. Por padrão é gerado um usuário adminstrador
+    - email: admin@gmail.com
+    - senha: admin123
+7. Demais funcionalidades de usuário são disponibilizadas após o registro
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Links do trabalho
+ - Telas: <https://www.canva.com/design/DAFxQpX5Xbg/BWr7Kfu0uvJ2IwNhM5NOcA/edit>
+ - Divisão de tarefas: <https://trello.com/b/i00zVEND/space-adventure>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionalidades do Usuário
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Reservas
+-  **Selecionar Dia e Hora Disponível para Reserva**
+  -  Escolher pacote de comidas
+  -  Indicar a quantidade de convidados
+  -  Informar nome do aniversariante
+  -  Indicar idade do aniversariante
 
-## Learning Laravel
+-  **Solicitações de Reserva e Status**
+  -  Acompanhar o status da reserva (Solicitado, Negado, Aprovado)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-  **Link para Confirmação de Convidados**
+  -  Formulário dinâmico para convidados confirmarem presença
+  -  Incluir Nome, CPF e Idade
+  -  Permitir que uma família envie todos os membros em um único formulário
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-  **Lista de Convidados Confirmados**
+  -  Opção de bloquear algum convidado
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-  **Visualização do Pacote de Comidas Escolhido**
+  -  Possibilidade de trocar, informando a diferença de valor
 
-## Laravel Sponsors
+-  **Lista de Recomendações do Buffet para a Pré-Festa**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-  **Cancelar Reserva**
 
-### Premium Partners
+-  **Pesquisa de Satisfação**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Funcionalidades do Administrador
 
-## Contributing
+### Pacotes de Comida
+-  **CRUD de Pacotes de Comida do Buffet**
+  -  Título
+  -  3 Fotos
+  -  Lista de comidas (área de texto e área de texto especializada)
+  -  Lista de bebidas
+  -  Valor por convidado (em reais)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Agenda de Disponibilidade do Buffet
+-  **CRUD da Agenda de Disponibilidade**
 
-## Code of Conduct
+### Reservas
+-  **Lista de Solicitações de Reserva**
+  -  Aceitar ou Negar Reservas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Recomendações para a Pré-Festa
+-  **CRUD da Lista de Recomendações para a Pré-Festa**
 
-## Security Vulnerabilities
+### Próximas Festas
+-  **Lista de Próximas Festas em Ordem Cronológica**
+  -  Data
+  -  Hora
+  -  Nome do Aniversariante
+  -  Quantidade de Confirmados
+  -  Pacote de Comida
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Pesquisas de Satisfação
+-  **Resultados das Pesquisas de Satisfação**
